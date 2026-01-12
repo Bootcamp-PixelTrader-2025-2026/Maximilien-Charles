@@ -1,0 +1,25 @@
+{
+  "name": "bootcamp",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000B\u0000o\u0000o\u0000t\u0000c\u0000a\u0000m\u0000p\u0000 \u0000P\u0000i\u0000x\u0000e\u0000l\u0000T\u0000r\u0000a\u0000d\u0000e\u0000r\u0000\r\u0000 \u0000R\u0000e\u0000p\u0000o\u0000s\u0000i\u0000t\u0000o\u0000r\u0000y\u0000 \u0000o\u0000f\u0000 \u0000M\u0000a\u0000x\u0000i\u0000m\u0000i\u0000l\u0000i\u0000e\u0000n\u0000 \u0000C\u0000h\u0000a\u0000r\u0000l\u0000e\u0000s\u0000\r\u0000 \u0000",
+  "main": "CSV.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bootcamp-PixelTrader-2025-2026/Maximilien-Charles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Bootcamp-PixelTrader-2025-2026/Maximilien-Charles/issues"
+  },
+  "homepage": "https://github.com/Bootcamp-PixelTrader-2025-2026/Maximilien-Charles#readme",
+  "dependencies": {
+    "csv": "^6.4.1",
+    "csv-parser": "^3.2.0"
+  }
+}
