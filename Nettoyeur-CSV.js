@@ -1,6 +1,9 @@
 import fs from 'fs';
 import parser from 'csv-parser';
+import { stringify } from 'csv-stringify/sync';
+import { writeFile } from 'fs/promises';
 
+// transforme le fichier CSV en JSON 
 export const readCsvFile = () => {
 	const filePath = './stock_legacy_full.csv';
 
@@ -19,6 +22,8 @@ export const readCsvFile = () => {
 	});
 };
 
+// fait le tri du parsing csv afin de faire un JSON clean facile a manipuler 
+
 function tri(json) {
 	const keyString = Object.keys(json)[0];
 	const valueString = Object.values(json)[0];
@@ -31,13 +36,7 @@ function tri(json) {
 	);
 }
 
-(async () => {
-	const data = await readCsvFile();
-	for (let i = 0; data.length>i; i++){
-		console.log(data[i].prix_achat);
-	}
-})();
-
+// Lance le nettoyage du fichier CSV ! 
 function repair_csv(data) {
 	nom_console(data);
 	etat_jeu(data);
@@ -45,7 +44,7 @@ function repair_csv(data) {
 	prix_jeu(data);
 
 }
-
+// clean nom des consoles en version raccourcies
 function nom_console(data) {
 	const mapping_platforme = {
         // Nintendo
@@ -102,26 +101,30 @@ function nom_console(data) {
 	}
 }
 
-
+// clean prix des jeux
 function prix_jeu(data) {
     for (let i = 0; i < data.length; i++) {
         let valeur_estimee = data[i].valeur_estimee;
 
-        if (!price) {
+        if (!valeur_estimee) {
             data[i].valeur_estimee = "0 €";
             continue;
         }
 
-        price = valeur_estimee.toString().trim();
+        let price = valeur_estimee.toString().trim()
+            .replace(/EUR|euros|€/gi, "").trim();
 
-        price = valeur_estimee.replace(/EUR|euros|€/gi, "").trim();
+        let value = parseFloat(price.replace(/[^0-9.]/g, ""));
+        
+        if (isNaN(value)) {
+            data[i].valeur_estimee = "0 €";
+            continue;
+        }
 
-        let value = parseFloat(valeur_estimee.replace(/[^0-9.]/g, ""));
-
-        if (valeur_estimee.includes("¥") || valeur_estimee.toLowerCase().includes("yen")) {
-            value = value * 0.0075; 
-        } else if (valeur_estimee.includes("$")) {
-            value = value * 0.92; 
+        if (price.includes("¥") || price.toLowerCase().includes("yen")) {
+            value *= 0.0075; 
+        } else if (price.includes("$")) {
+            value *= 0.92; 
         }
 
         data[i].valeur_estimee = Math.round(value) + " €";
@@ -129,9 +132,7 @@ function prix_jeu(data) {
 }
 
 
-
-
-
+// clean etats des jeux
 function etat_jeu(data) {
 	const mapping_etat = {
 		// Excellent
@@ -185,13 +186,13 @@ function etat_jeu(data) {
 		}
 	}
 }
-
+//clean les prix d'achats
 function prix_achat_jeu(data) {
     for (let i = 0; i < data.length; i++) {
         let brainrot = data[i].prix_achat;
 
         if (!brainrot) {
-            data[i].price = "0 €";
+            data[i].prix_achat = "0 €";
             continue;
         }
 
@@ -204,13 +205,29 @@ function prix_achat_jeu(data) {
         if (isNaN(value)) value = 0;
 
         if (brainrot.includes("¥") || brainrot.toLowerCase().includes("yen")) {
-            value = value * 0.0075; // YEN → EUR approximatif
+            value = value * 0.0075; 
         } else if (brainrot.includes("$")) {
-            value = value * 0.92; // USD → EUR approximatif
+            value = value * 0.92; 
         }
-
-        data[i].price = Math.round(value) + " €";
+        data[i].prix_achat = Math.round(value) + " €";
     }
 }
 
-///repair_csv(data);
+async function cleanAndDownloadCSV() {
+    try {
+        const data = await readCsvFile();
+        repair_csv(data);
+        const csvContent = stringify(data, {
+            header: true,
+            delimiter: ';',
+            quoted: true
+        });
+		await writeFile('./Jeu_retro_clean.csv', csvContent);
+        console.log(` Terminé ! ${data.length} jeux nettoyés`);
+        console.log(' Fichier créé : stock_cleaned.csv');  
+    } catch (error) {
+        process.exit(1);
+    }
+}
+
+cleanAndDownloadCSV();
