@@ -46,7 +46,7 @@ function repair_csv(data) {
 }
 // clean nom des consoles en version raccourcies
 function nom_console(data) {
-	const mapping_platforme = {
+	const mapping_plateforme = {
         // Nintendo
         "Nintendo 64": "N64",
         "N64": "N64",
@@ -94,9 +94,9 @@ function nom_console(data) {
         "Xbox": "Xbox"
 	}
 	for (let i = data.length - 1; i >= 0; i--) {
-		const plateforme = data[i].platforme;
-		if (mapping_platforme[plateforme]) {
-			data[i].plateforme = mapping_platforme[platforme];
+		const plateforme = data[i].plateforme;
+		if (mapping_plateforme[plateforme]) {
+			data[i].plateforme = mapping_plateforme[plateforme];
 		}
 	}
 }
