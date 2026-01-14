@@ -226,6 +226,7 @@ async function cleanAndDownloadCSV() {
         console.log(` Terminé ! ${data.length} jeux nettoyés`);
         console.log(' Fichier créé : stock_cleaned.csv');  
     } catch (error) {
+        console.log('erreur fichier non valide !')
         process.exit(1);
     }
 }
