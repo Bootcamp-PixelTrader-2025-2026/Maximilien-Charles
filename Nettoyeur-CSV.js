@@ -27,7 +27,6 @@ export const readCsvFile = () => {
 function tri(json) {
 	const keyString = Object.keys(json)[0];
 	const valueString = Object.values(json)[0];
-
 	const keys = keyString.split(';');
 	const values = valueString.split(';');
 
@@ -221,7 +220,7 @@ async function cleanAndDownloadCSV() {
             header: true,
             delimiter: ';',
             quoted: true
-        });
+        }); 
 		await writeFile('./Jeu_retro_clean.csv', csvContent);
         console.log(` Terminé ! ${data.length} jeux nettoyés`);
         console.log(' Fichier créé : stock_cleaned.csv');  
