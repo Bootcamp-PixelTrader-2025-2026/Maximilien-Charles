@@ -12,26 +12,10 @@ try {
         ]
     );
 
-    $id = $_GET['id'] ?? null;
-    $etat = $_GET['etat'] ?? null;
+    $path = $_SERVER['PATH_INFO'] ?? null;
     
-    if ($id) {
-        $requete = $pdo->prepare("SELECT * FROM games WHERE id = :id");
-        $requete->execute(['id' => $id]);
-        $data = $requete->fetch(PDO::FETCH_ASSOC);
-        
-        if ($data) {
-            $retour = [
-                "success" => true,
-                "data" => $data
-            ];
-        } else {
-            $retour = [
-                "success" => false,
-                "message" => "Jeu non trouvé avec l'ID: " . $id
-            ];
-        }
-    } elseif ($etat) {
+    if ($path) {
+        $etat = ltrim($path, '/');
         $etatsValides = ['Excellent', 'Bon', 'Moyen', 'Mauvais'];
         
         if (in_array($etat, $etatsValides)) {
@@ -49,12 +33,10 @@ try {
             ];
         }
     } else {
-        $requete = $pdo->prepare("SELECT * FROM games");
-        $requete->execute();
-        
+        // Pas de PATH_INFO = erreur
         $retour = [
-            "success" => true,
-            "data" => $requete->fetchAll(PDO::FETCH_ASSOC)
+            "success" => false,
+            "message" => "Veuillez spécifier un état dans l'URL"
         ];
     }
 
