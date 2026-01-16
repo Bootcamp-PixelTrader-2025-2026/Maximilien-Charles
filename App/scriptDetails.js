@@ -20,7 +20,16 @@ fetch(baseUrl)
             let jeu = data.data; 
             let li = createNode('li');
             let span = createNode('span');
-            span.innerHTML = `${jeu.titre_jeu} - ${jeu.plateforme} - ${jeu.annee_sortie} - ${jeu.etat} - ${jeu.emplacement}`;
+            span.innerHTML = `${jeu.titre_jeu} <br>
+            <br>
+            <br>
+            Plateforme - ${jeu.plateforme} <br>
+            <br>
+            Année de sortie - ${jeu.annee_sortie} <br>
+            <br>
+            État - ${jeu.etat} <br>
+            <br>
+            Emplacement - ${jeu.emplacement}`;
             append(li, span);
             append(ul, li);
         } else {

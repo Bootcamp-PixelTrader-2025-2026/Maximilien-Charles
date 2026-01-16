@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+      * {
+        margin: 30;
+        padding: 30;
+        box-sizing: border-box;
+      }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  text-align: center;
+  color: #ffcc00;
+  text-shadow: 2px 2px #000000;
+  padding: 30px;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.detailJeu {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #272626;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+ul {
+  font-family: 'Press Start 2P', cursive;
+  list-style: none;
+  padding: 0;
+  color: #bdff07;
+}
+
+li {
+  background-color: #464545;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.retour {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #464545;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.retour:hover {
+  background-color: #ec3018;
+  transition: background-color 0.3s;
+}
+

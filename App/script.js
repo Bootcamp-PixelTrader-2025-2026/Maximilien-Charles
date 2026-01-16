@@ -34,7 +34,7 @@ function chargerJeux(etat = 'tous') {
             // Créer un map des stocks par game_id
             const stockMap = {};
             stocks.forEach(stock => {
-                stockMap[stock.game_id] = stock; // 👈 CORRECTION ICI
+                stockMap[stock.game_id] = stock; 
             });
             
             // Afficher les jeux avec leurs infos de stock
@@ -51,7 +51,12 @@ function chargerJeux(etat = 'tous') {
                 const prixAchat = stock.prix_achat || 'N/A';
                 const valeurEstimee = stock.valeur_estimee || 'N/A';
                 
-                span.innerHTML = `${jeu.titre_jeu} - Prix d'achat : ${prixAchat}€ | Valeur estimée : ${valeurEstimee}€`;
+                span.innerHTML = `${jeu.titre_jeu} <br>
+                <br>
+                <br>
+                Prix d'achat : ${prixAchat}€ <br>
+                <br>
+                Valeur estimée : ${valeurEstimee}€`;
                 
                 append(li, span);
                 append(ul, li);
