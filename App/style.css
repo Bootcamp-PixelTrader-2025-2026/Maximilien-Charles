@@ -81,3 +81,11 @@ font-family: 'Press Start 2P', cursive;
   background-color: #a13636;
   transition: background-color 0.3s;
 }
+
+.detailJeu {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #272626;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}

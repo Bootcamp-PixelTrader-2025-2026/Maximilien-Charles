@@ -13,7 +13,7 @@ function append(parent, el) {
     return parent.appendChild(el);
 }
 
-fetch(url)
+fetch(baseUrl)
     .then(resp => resp.json())
     .then(data => {
         if (data.success) {
