@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>JEU-RETRO</title>
   </head>
   <body>
-    <label for="filtreEtat">États jeux:</label>
-    <select name="filtreEtat" id="filtreEtat">
+    <label class="filtreEtat" for="filtreEtat">États jeux:</label>
+    <select class="filtre" name="filtreEtat" id="filtreEtat">
       <option value="tous">Tous les jeux</option>
       <option value="Excellent">Excellent</option>
       <option value="Bon">Bon</option>
@@ -15,6 +16,7 @@
       <option value="Mauvais">Mauvais</option>
     </select>
     <h1>JEUX</h1>
+    
     <ul id="jeux"></ul>
 
     <script src="script.js"></script>

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+      * {
+        margin: 30;
+        padding: 30;
+        box-sizing: border-box;
+      }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  text-align: center;
+  color: #ffcc00;
+  text-shadow: 2px 2px #000000;
+  padding: 30px;
+}
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+ul {
+  font-family: 'Press Start 2P', cursive;
+  list-style-type: none;
+  padding: 0;
+  color: #ffea98;
+}
+
+li {
+background-color: #272626;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+li:hover {
+  background-color: #a13636;
+}
+
+
+.filtreEtat {
+color: #a13636;;
+font-family: 'Press Start 2P', cursive;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.filtre {
+    background-color: #464545;
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+  border: none;
+}
+
+.filtre:hover {
+  background-color: #a13636;
+  transition: background-color 0.3s;
+}
+
+.retour {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #464545;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.retour:hover {
+  background-color: #a13636;
+  transition: background-color 0.3s;
+}

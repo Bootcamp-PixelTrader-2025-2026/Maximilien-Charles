@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost/bootcamp/api/games.php';
+const baseUrl = 'http://localhost:8000/API/games.php';
 const ul = document.getElementById('jeux');
 const filtreEtat = document.getElementById('filtreEtat');
 

@@ -4,9 +4,9 @@ header('Content-Type: application/json');
 
 try {
     $pdo = new PDO(
-        'mysql:host=localhost;port=3306;dbname=pixeltrader;charset=utf8',
+        'mysql:host=localhost;port=8889;dbname=pixeltrader;charset=utf8',
         'root',
-        '',
+        'root',
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]

@@ -1,8 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
+const baseUrl = `http://localhost:8000/API/games.php?id=${id}`;
 
-const url = `http://localhost/bootcamp/api/games.php?id=${id}`;
 const ul = document.getElementById('jeu');
 
 function createNode(element) {
